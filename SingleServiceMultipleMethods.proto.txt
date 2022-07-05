@@ -18,6 +18,8 @@ message GetBookViaAuthor {
 
 service BookService {
     rpc GetBook (GetBookRequest) returns (Book) {}
+    rpc GetBooksViaAuthor (GetBookViaAuthor) returns (stream Book) {}
+    rpc AnotherOne (GetBookViaAuthor) returns (stream Book) {}
     rpc GetGreatestBook (stream GetBookRequest) returns (Book) {}
     rpc GetBooks (stream GetBookRequest) returns (stream Book) {}
 }
