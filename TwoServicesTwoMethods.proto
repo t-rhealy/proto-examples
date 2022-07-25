@@ -16,14 +16,14 @@ message GetBookViaAuthor {
     string author = 1;
 }
 
-service BookService1 {
+service BookService {
     rpc GetBook (GetBookRequest) returns (Book) {}
     rpc GetBooksViaAuthor (GetBookViaAuthor) returns (stream Book) {}
 }
 
-service BookService2 {
-    rpc GetBook (GetBookRequest) returns (Book) {}
-    rpc GetBooksViaAuthor (GetBookViaAuthor) returns (stream Book) {}
+service OtherService {
+    rpc GetGreatestBook (stream GetBookRequest) returns (Book) {}
+    rpc GetBooks (stream GetBookRequest) returns (stream Book) {}
 }
 
 message BookStore {
